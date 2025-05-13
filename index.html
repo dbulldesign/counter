@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Switch } from "@/components/ui/switch";
 
 export default function CounterApp() {
   const [count, setCount] = useState(0);
@@ -41,21 +38,21 @@ export default function CounterApp() {
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen p-4 space-y-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'}`}>
       <div className="absolute top-4 right-4 flex items-center space-x-2">
-        <span>Dark Mode</span>
-        <Switch checked={darkMode} onCheckedChange={setDarkMode} />
+        <label htmlFor="dark-toggle">Dark Mode</label>
+        <input id="dark-toggle" type="checkbox" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
       </div>
 
       <div className="text-6xl font-bold">{count}</div>
 
       <div className="flex flex-col space-y-4 w-full max-w-sm">
-        <Button className="text-xl py-4" onClick={handleCountUp}>
+        <button className="text-xl py-4 px-6 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handleCountUp}>
           Count Up
-        </Button>
-        <Button className="text-xl py-4 bg-red-500 hover:bg-red-600 text-white" onClick={handleReset}>
+        </button>
+        <button className="text-xl py-4 px-6 bg-red-500 text-white rounded hover:bg-red-600" onClick={handleReset}>
           Reset
-        </Button>
-        <Textarea
-          className="mt-4 w-full text-base"
+        </button>
+        <textarea
+          className="mt-4 w-full p-2 text-base rounded border"
           placeholder="Enter notes here..."
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
@@ -77,4 +74,3 @@ export default function CounterApp() {
     </div>
   );
 }
-
