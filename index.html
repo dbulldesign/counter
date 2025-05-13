@@ -39,20 +39,31 @@ export default function CounterApp() {
     <div className={`flex flex-col items-center justify-center min-h-screen p-4 space-y-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-black'}`}>
       <div className="absolute top-4 right-4 flex items-center space-x-2">
         <label htmlFor="dark-toggle">Dark Mode</label>
-        <input id="dark-toggle" type="checkbox" checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+        <input
+          id="dark-toggle"
+          type="checkbox"
+          checked={darkMode}
+          onChange={() => setDarkMode(!darkMode)}
+        />
       </div>
 
       <div className="text-6xl font-bold">{count}</div>
 
       <div className="flex flex-col space-y-4 w-full max-w-sm">
-        <button className="text-xl py-4 px-6 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={handleCountUp}>
+        <button
+          className="text-xl py-4 px-6 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={handleCountUp}
+        >
           Count Up
         </button>
-        <button className="text-xl py-4 px-6 bg-red-500 text-white rounded hover:bg-red-600" onClick={handleReset}>
+        <button
+          className="text-xl py-4 px-6 bg-red-500 text-white rounded hover:bg-red-600"
+          onClick={handleReset}
+        >
           Reset
         </button>
         <textarea
-          className="mt-4 w-full p-2 text-base rounded border"
+          className="mt-4 w-full p-2 text-base rounded border border-gray-300"
           placeholder="Enter notes here..."
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
@@ -65,7 +76,9 @@ export default function CounterApp() {
               <li key={index} className="border p-2 rounded bg-white dark:bg-gray-800">
                 <div><strong>Count:</strong> {entry.count}</div>
                 <div><strong>Notes:</strong> {entry.notes}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{new Date(entry.timestamp).toLocaleString()}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">
+                  {new Date(entry.timestamp).toLocaleString()}
+                </div>
               </li>
             ))}
           </ul>
